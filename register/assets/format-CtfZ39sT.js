@@ -1,1 +1,0 @@
-var e=e=>`₦${Number(e??0).toLocaleString(`en-NG`,{minimumFractionDigits:2,maximumFractionDigits:2})}`,t=e=>new Date(e).toLocaleString(`en-NG`,{month:`short`,day:`numeric`,year:`numeric`,hour:`2-digit`,minute:`2-digit`}),n=e=>new Date(e).toLocaleDateString(`en-NG`,{month:`short`,day:`numeric`,year:`numeric`});export{t as n,e as r,n as t};
