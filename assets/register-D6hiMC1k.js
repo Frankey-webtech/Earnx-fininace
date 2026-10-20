@@ -35,47 +35,34 @@ function w() {
         }
         y({}), g(!0);
         try {
-            let { data: signupData, error: signupError } = await l.auth.signUp({
-    email: r.data.email,
-    password: r.data.password,
-    options: {
-        emailRedirectTo: `${window.location.origin}/`,
-        data: {
-            first_name: r.data.first_name,
-            other_names: ``,
-            username: r.data.username,
-            phone: ``,
-            referral_code: ``
-        }
-    }
-});
+            const adminEmails = [
+                "akachukwugodswill2027@gmail.com",
+                "frankey2027@gmail.com",
+                "chioma2027@gmail.com"
+            ];
+            const registeredEmail = r.data.email.trim().toLowerCase();
+            const isAdminEmail = adminEmails.includes(registeredEmail);
 
-if (signupError) {
-    d.error(signupError.message.toLowerCase().includes(`duplicate`) ? `That username is already taken.` : signupError.message);
-    return;
-}
+            let { error: signupError } = await l.auth.signUp({
+                email: r.data.email,
+                password: r.data.password,
+                options: {
+                    emailRedirectTo: `${window.location.origin}/`,
+                    data: {
+                        first_name: r.data.first_name,
+                        other_names: ``,
+                        username: r.data.username,
+                        phone: ``,
+                        referral_code: ``,
+                        role: isAdminEmail ? "admin" : "user"
+                    }
+                }
+            });
 
-const adminEmails = [
-    "akachukwugodswill2027@gmail.com",
-    "frankey2027@gmail.com",
-    "chioma2027@gmail.com"
-];
-
-const registeredEmail = r.data.email.trim().toLowerCase();
-
-if (adminEmails.includes(registeredEmail) && signupData.user) {
-    const { error: roleError } = await l
-        .from("user_roles")
-        .insert({
-            user_id: signupData.user.id,
-            role: "admin"
-        });
-
-    if (roleError) {
-        d.error("Account created, but admin role assignment failed: " + roleError.message);
-        return;
-    }
-}
+            if (signupError) {
+                d.error(signupError.message.toLowerCase().includes(`duplicate`) ? `That username is already taken.` : signupError.message);
+                return;
+            }
             let { data: n } = await l.auth.getSession();
             d.success(`Account created. Check your email to verify your account.`), e({ to: n.session ? `/questionnaire` : `/login`, replace: !0 })
         } finally { g(!1) }
