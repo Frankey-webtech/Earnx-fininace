@@ -19,7 +19,7 @@ import { t as k } from "./zap-C7gVU_r7.js";
 import { c as A, i as j, o as M, p as N, s as P } from "./index-BYWLTDn2.js";
 
 const ADMIN_EMAILS = [
-    "akachukwugodswill2027@gmail.com",
+    "akachukwu2027@gmail.com",
     "frankey2027@gmail.com",
     "chioma2027@gmail.com"
 ];

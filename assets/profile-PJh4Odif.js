@@ -14,7 +14,7 @@ import { r as v, t as y } from "./app-page-MUDM_FSj.js";
 import { r as b } from "./format-CtfZ39sT.js";
 
 const ADMIN_EMAILS = [
-    "akachukwugodswill2027@gmail.com",
+    "akachukwu2027@gmail.com",
     "frankey2027@gmail.com",
     "chioma2027@gmail.com"
 ];
