@@ -1,69 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" as="image" href="../earnx-eagle-logo.png">
-    <link rel="stylesheet" href="../assets/styles-DCEfU-8i.css" data-precedence="default">
-    <title>Reset Your Password — EarnX-Finance</title>
-    <meta name="author" content="Lovable">
-    <meta name="twitter:site" content="@Lovable">
-    <meta name="description" content="Securely reset your EarnX-Finance password and get back to earning.">
-    <meta property="og:title" content="Reset Your Password — EarnX-Finance">
-    <meta property="og:description" content="Securely reset your EarnX-Finance password.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="modulepreload" href="../assets/index-BYWLTDn2.js">
-    <link rel="modulepreload" href="../assets/useRouter-BOAPZDg1.js">
-    <link rel="modulepreload" href="../assets/utils-BRQOfKs2.js">
-    <link rel="modulepreload" href="../assets/invariant-DEEwAagU.js">
-    <link rel="modulepreload" href="../assets/forgot-password-Bd4Jf0Z9.js">
-    <link rel="modulepreload" href="../assets/dist-BrOQi9H-.js">
-    <link rel="modulepreload" href="../assets/label-BD_1bcg8.js">
-    <link rel="icon" href="../earnx-eagle-logo.png" type="image/png">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preload" as="image" href="/earnx-eagle-logo.png"/>
+<link rel="stylesheet" href="/assets/styles-DCEfU-8i.css"/>
+<title>Reset Your Password — EarnX-Finance</title>
+<meta name="description" content="Reset your EarnX-Finance password and get back to earning."/>
+<meta property="og:title" content="Reset Your Password — EarnX-Finance"/>
+<meta property="og:description" content="Reset your EarnX-Finance password."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" href="/earnx-eagle-logo.png" type="image/png"/>
 </head>
-
-<body><!--$-->
-    <main class="relative flex min-h-screen flex-col bg-hero-glow px-4 py-8 sm:px-6">
-        <div aria-hidden="true" class="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-royal-gradient opacity-30 blur-3xl animate-float-slow"></div>
-        <div aria-hidden="true" class="pointer-events-none absolute -right-16 bottom-10 h-56 w-56 rounded-full bg-gold-gradient opacity-15 blur-3xl animate-float"></div>
-        <div class="relative mx-auto flex w-full max-w-md flex-1 flex-col">
-            <div class="flex items-center justify-between"><a class="flex items-center" aria-label="EarnX-Finance home" href="../index.html"><img src="../earnx-eagle-logo.png" alt="EarnX-Finance logo" width="640" height="494" class="w-auto shrink-0 object-contain h-10 sm:h-11"></a><a class="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground" href="../index.html">Back to home</a></div>
-            <div class="mt-8 animate-[rise_0.6s_ease-out] rounded-3xl surface-card p-6 sm:p-8">
-                <h1 class="font-display text-2xl font-extrabold sm:text-3xl">Forgot your password?</h1>
-                <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Enter the email address on your account and we'll send you a secure reset link.</p>
-                <div class="mt-6">
-                    <form class="space-y-4" novalidate="">
-                        <div class="space-y-1.5"><label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email address</label><input type="email" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" id="email" autocomplete="email" placeholder="you@example.com" name="email"></div><button class="relative inline-flex select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full font-semibold transition-all duration-300 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 bg-gold-gradient text-gold-foreground shadow-gold-glow hover:brightness-110 h-13 px-8 text-base w-full" type="submit"><span class="relative z-10 inline-flex items-center gap-2">Send reset link</span></button>
-                    </form>
-                </div>
-            </div>
-            <div class="mt-6 text-center text-sm text-muted-foreground">Remembered it?<!-- --> <a class="font-semibold text-gold hover:underline" href="../login/index.html">Back to login</a></div>
+<body>
+<main class="relative flex min-h-screen flex-col bg-hero-glow px-4 py-8 sm:px-6">
+    <div aria-hidden="true" class="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-royal-gradient opacity-30 blur-3xl animate-float-slow"></div>
+    <div aria-hidden="true" class="pointer-events-none absolute -right-16 bottom-10 h-56 w-56 rounded-full bg-gold-gradient opacity-15 blur-3xl animate-float"></div>
+    <div class="relative mx-auto flex w-full max-w-md flex-1 flex-col">
+        <div class="flex items-center justify-between">
+            <a class="flex items-center" aria-label="EarnX-Finance home" href="/">
+                <img src="/earnx-eagle-logo.png" alt="EarnX-Finance logo" width="640" height="494" class="w-auto shrink-0 object-contain h-10 sm:h-11"/>
+            </a>
+            <a class="text-xs font-medium text-muted-foreground transition-colors hover:text-foreground" href="/">Back to home</a>
         </div>
-    </main>
-    <script>
-        (function(a, f) { let l; try { l = JSON.parse(sessionStorage.getItem(a) || "{}") } catch { return } const n = l?.[f || history.state?.__TSR_key]; let c = !1; for (const t in n) { const e = n[t],
-                    o = e?.scrollX,
-                    s = e?.scrollY; if (Number.isFinite(o) && Number.isFinite(s)) { if (t === "window") scrollTo(o, s), c = !0;
-                    else if (t) try { const r = document.querySelector(t);
-                        r && (r.scrollLeft = o, r.scrollTop = s) } catch {} } } if (c) return; const i = location.hash.slice(1); if (i) { const t = history.state?.__hashScrollIntoViewOptions ?? !0; if (t) { const e = document.getElementById(i);
-                    e && e.scrollIntoView(t) } return } scrollTo(0, 0) })("tsr-scroll-restoration-v1_3");
-        document.currentScript.remove()
-    </script><!--/$-->
-    <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false" data-react-aria-top-layer="true"></section>
-    <script data-tsr-stream-part="">
-        (self.$R = self.$R || {})["tsr"] = [];
-        self.$_TSR = { h() { this.hydrated = !0, this.c() }, e() { this.streamEnded = !0, this.c() }, c() { this.hydrated && this.streamEnded && (delete self.$_TSR, delete self.$R.tsr) }, p(e) { this.initialized ? e() : this.buffer.push(e) }, buffer: [] };
-        $_TSR.router = ($R => $R[0] = { manifest: $R[1] = { routes: $R[2] = { __root__: $R[3] = { preloads: $R[4] = ["/assets/index-BYWLTDn2.js", "/assets/useRouter-BOAPZDg1.js", "/assets/utils-BRQOfKs2.js", "/assets/invariant-DEEwAagU.js"], scripts: $R[5] = [$R[6] = { attrs: $R[7] = { type: "module", async: !0, src: "/assets/index-BYWLTDn2.js" } }] }, "/forgot-password": $R[8] = { preloads: $R[9] = ["/assets/forgot-password-Bd4Jf0Z9.js", "/assets/dist-BrOQi9H-.js", "/assets/label-BD_1bcg8.js"] } } }, matches: $R[10] = [$R[11] = { i: "__root__�", u: 1792156438656, s: "success", ssr: !0 }, $R[12] = { i: "�forgot-password�forgot-password", u: 1792156438656, s: "success", ssr: !0 }] })($R["tsr"]);
-        $_TSR.e(); { let s = document.currentScript,
-                p; while ((p = s.previousElementSibling) && p.hasAttribute('data-tsr-stream-part')) p.remove();
-            s.remove() }
-    </script>
-    <script type="module" async="" src="../assets/index-BYWLTDn2.js"></script>
-    <script>
-        document.currentScript.remove(); /*$tsr-stream-boundary*/
-    </script>
-</body>
 
-      </html>
+        <div class="mt-8 animate-[rise_0.6s_ease-out] rounded-3xl surface-card p-6 sm:p-8">
+            <h1 class="font-display text-2xl font-extrabold sm:text-3xl">Forgot your password?</h1>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">Enter the email address on your account and we'll send you a secure reset link.</p>
+
+            <div class="mt-6">
+                <form id="forgotPasswordForm" class="space-y-4" novalidate>
+                    <div class="space-y-1.5">
+                        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email address</label>
+                        <input type="email" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm" id="email" name="email" autocomplete="email" placeholder="you@example.com" required/>
+                    </div>
+                    <p id="resetMessage" class="hidden text-sm leading-relaxed" role="status" aria-live="polite"></p>
+                    <button id="resetButton" class="relative inline-flex select-none items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-full font-semibold transition-all duration-300 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 bg-gold-gradient text-gold-foreground shadow-gold-glow hover:brightness-110 h-13 px-8 text-base w-full" type="submit">
+                        <span id="resetButtonText" class="relative z-10 inline-flex items-center gap-2">Send reset link</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center text-sm text-muted-foreground">Remembered it? <a class="font-semibold text-gold hover:underline" href="/login">Back to login</a></div>
+    </div>
+</main>
+
+<script src="/back4app-config.js"></script>
+<script>
+(function () {
+    const form = document.getElementById("forgotPasswordForm");
+    const emailInput = document.getElementById("email");
+    const button = document.getElementById("resetButton");
+    const buttonText = document.getElementById("resetButtonText");
+    const message = document.getElementById("resetMessage");
+
+    function showMessage(text, type) {
+        message.textContent = text;
+        message.classList.remove("hidden", "text-destructive", "text-green-600", "text-muted-foreground");
+
+        if (type === "success") {
+            message.classList.add("text-green-600");
+        } else if (type === "error") {
+            message.classList.add("text-destructive");
+        } else {
+            message.classList.add("text-muted-foreground");
+        }
+    }
+
+    function loadParse() {
+        if (window.Parse && window.Parse.User) {
+            return Promise.resolve(window.Parse);
+        }
+
+        if (window.__earnxParsePromise) {
+            return window.__earnxParsePromise;
+        }
+
+        window.__earnxParsePromise = new Promise(function (resolve, reject) {
+            const script = document.createElement("script");
+
+            script.src = "https://unpkg.com/parse@4.3.0/dist/parse.min.js";
+
+            script.onload = function () {
+                try {
+                    const config = window.BACK4APP_CONFIG || {};
+
+                    const applicationId =
+                        config.applicationId ||
+                        localStorage.getItem("BACK4APP_APPLICATION_ID") ||
+                        "";
+
+                    const javascriptKey =
+                        config.javascriptKey ||
+                        localStorage.getItem("BACK4APP_JAVASCRIPT_KEY") ||
+                        "";
+
+                    const serverURL =
+                        config.serverURL ||
+                        localStorage.getItem("BACK4APP_SERVER_URL") ||
+                        "https://parseapi.back4app.com";
+
+                    if (
+                        !applicationId ||
+                        applicationId === "YOUR_BACK4APP_APPLICATION_ID"
+                    ) {
+                        throw new Error(
+                            "Add your real Back4App Application ID to back4app-config.js before requesting a password reset."
+                        );
+                    }
+
+                    window.Parse.initialize(
+                        applicationId,
+                        javascriptKey
+                    );
+
+                    window.Parse.serverURL = serverURL;
+
+                    resolve(window.Parse);
+                } catch (error) {
+                    reject(error);
+                }
+            };
+
+            script.onerror = function () {
+                reject(
+                    new Error(
+                        "The Back4App SDK could not be loaded. Check your internet connection and try again."
+                    )
+                );
+            };
+
+            document.head.appendChild(script);
+        });
+
+        return window.__earnxParsePromise;
+    }
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim().toLowerCase();
+
+        if (!email) {
+            showMessage(
+                "Enter the email address associated with your account.",
+                "error"
+            );
+
+            emailInput.focus();
+            return;
+        }
+
+        if (!emailInput.checkValidity()) {
+            showMessage(
+                "Enter a valid email address.",
+                "error"
+            );
+
+            emailInput.focus();
+            return;
+        }
+
+        button.disabled = true;
+        buttonText.textContent = "Sending reset link…";
+        message.classList.add("hidden");
+
+        try {
+            const ParseSDK = await loadParse();
+
+            await ParseSDK.User.requestPasswordReset(email);
+
+            showMessage(
+                "If an account exists for that email address, Back4App will send a password-reset email. Check your inbox and spam folder.",
+                "success"
+            );
+
+            form.reset();
+        } catch (error) {
+            console.error(
+                "Back4App password reset error:",
+                error
+            );
+
+            showMessage(
+                error && error.message
+                    ? error.message
+                    : "The password-reset request could not be completed. Please try again.",
+                "error"
+            );
+        } finally {
+            button.disabled = false;
+            buttonText.textContent = "Send reset link";
+        }
+    });
+})();
+</script>
+</body>
+</html>
