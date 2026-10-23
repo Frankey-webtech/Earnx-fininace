@@ -29,7 +29,7 @@ function w() {
         (async () => {
             let { data: t } = await p.auth.getUser();
             if (!t.user) { e({ to: `/login`, replace: !0 }); return }
-            let [{ data: r }, { data: i }, { data: a }, { data: o }] = await Promise.all([Promise.resolve({ data: { activation_instructions: "Make your activation payment to the bank account displayed below. After payment, upload your payment receipt for verification.", bank_name: "TANIMOLA AYODEJI EMMANUEL", account_name: "PALMPAY", account_number: "8947276519", security_notice: "Ensure that the account details match the details displayed here before making payment.", anti_scam_reminder: "Only make activation payments to the official account displayed on this page." } }), p.from(`profiles`).select(`activation, level, first_name`).eq(`id`, t.user.id).maybeSingle(), p.from(`activation_requests`).select(`status, admin_note, level`).eq(`user_id`, t.user.id).order(`created_at`, { ascending: !1 }).limit(1).maybeSingle(), p.from(`levels`).select(`level, name, activation_fee`).order(`level`)]);
+            let [{ data: r }, { data: i }, { data: a }, { data: o }] = await Promise.all([p.rpc("getPlatformSettings"), p.from(`profiles`).select(`activation, level, first_name`).eq(`id`, t.user.id).maybeSingle(), p.from(`activation_requests`).select(`status, admin_note, level`).eq(`user_id`, t.user.id).order(`created_at`, { ascending: !1 }).limit(1).maybeSingle(), p.from(`levels`).select(`level, name, activation_fee`).order(`level`)]);
             E(r ?? null), A(i?.activation ?? `not_activated`), M(a?.admin_note ?? null), P(i?.first_name ?? ``);
             let s = Number(i?.level ?? 0);
             O((o ?? []).find(e => e.level === s) ?? null), n(!1)

@@ -43,7 +43,7 @@ function O() {
         (async () => {
             let { data: e } = await h.auth.getUser();
             if (!e.user) { n({ to: `/login`, replace: !0 }); return }
-            let [{ data: r }, { data: i }, { data: a }, { data: o }] = await Promise.all([h.from(`levels`).select(`*`).order(`level`), h.from(`profiles`).select(`level, balance, first_name, other_names`).eq(`id`, e.user.id).maybeSingle(), Promise.resolve({ data: { bank_name: "PALMPAY", account_name: "TANIMOLA AYODEJI EMMANUEL", account_number: "8947276519", security_notice: "Verify the account details before making payment.", anti_scam_reminder: "Only make upgrade payments to the official account displayed on this page." } }), h.from(`upgrade_requests`).select(`id, status, admin_note`).eq(`user_id`, e.user.id).order(`created_at`, { ascending: !1 }).limit(1).maybeSingle()]), s = r ?? [], c = i, l = c?.level ?? 0;
+            let [{ data: r }, { data: i }, { data: a }, { data: o }] = await Promise.all([h.from(`levels`).select(`*`).order(`level`), h.from(`profiles`).select(`level, balance, first_name, other_names`).eq(`id`, e.user.id).maybeSingle(), h.rpc("getPlatformSettings"), h.from(`upgrade_requests`).select(`id, status, admin_note`).eq(`user_id`, e.user.id).order(`created_at`, { ascending: !1 }).limit(1).maybeSingle()]), s = r ?? [], c = i, l = c?.level ?? 0;
             j(s.find(e => e.level === t) ?? null), N(s.find(e => e.level === l) ?? null), ee(l), I(c?.balance ?? 0), W(`${c?.first_name??``} ${c?.other_names??``}`.trim()), R(a ?? null);
             let u = o;
             Z(u?.status ?? ``), Q(u?.admin_note ?? null), X(u?.status === `pending`), O(!1)
