@@ -28,24 +28,56 @@
  let parseReady;
  
  function loadParse() {
-  if (window.Parse && window.Parse.User) return Promise.resolve(window.Parse);
-  if (parseReady) return parseReady;
-  parseReady = new Promise((resolve, reject) => {
-   const script = document.createElement("script");
-   script.src = "https://unpkg.com/parse@4.3.0/dist/parse.min.js";
-   script.onload = () => {
-    try {
-     if (!appId || appId === "jDMwnR6TBWGx0JFGCVNQqZEw7sVTMM63W7Jtqdxl") throw new Error("Configure BACK4APP_APPLICATION_ID before using the app.");
-     Parse.initialize(appId, jsKey);
-     Parse.serverURL = serverURL;
-     resolve(Parse);
-    } catch (e) { reject(e) }
-   };
-   script.onerror = () => reject(new Error("Could not load the Back4App Parse SDK."));
-   document.head.appendChild(script);
-  });
+ if (parseReady) {
   return parseReady;
  }
+ 
+ parseReady = new Promise((resolve, reject) => {
+  const initializeParse = () => {
+   try {
+    if (!window.Parse || !window.Parse.User) {
+     throw new Error("Back4App Parse SDK failed to load.");
+    }
+    
+    if (!appId || !serverURL) {
+     throw new Error("Back4App configuration is missing.");
+    }
+    
+    if (!window.Parse.applicationId) {
+     window.Parse.initialize(appId, jsKey);
+    }
+    
+    window.Parse.serverURL = serverURL;
+    
+    resolve(window.Parse);
+   } catch (error) {
+    reject(error);
+   }
+  };
+  
+  if (window.Parse && window.Parse.User) {
+   initializeParse();
+   return;
+  }
+  
+  const script = document.createElement("script");
+  
+  script.src =
+   "https://unpkg.com/parse@4.3.0/dist/parse.min.js";
+  
+  script.onload = initializeParse;
+  
+  script.onerror = () => {
+   reject(
+    new Error("Could not load the Back4App Parse SDK.")
+   );
+  };
+  
+  document.head.appendChild(script);
+ });
+ 
+ return parseReady;
+}
  
  function err(error) { return { message: error && error.message || String(error), code: error && error.code || "BACK4APP_ERROR" } }
  
