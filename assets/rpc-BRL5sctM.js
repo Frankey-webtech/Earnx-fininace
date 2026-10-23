@@ -1,1 +1,0 @@
-import{c as e}from"./index-BYWLTDn2.js";async function t(t,n){let{data:r,error:i}=await e.rpc.bind(e)(t,n);return{data:r??{},error:i}}export{t};

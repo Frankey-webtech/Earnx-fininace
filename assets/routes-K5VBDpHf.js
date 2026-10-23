@@ -1,1 +1,0 @@
-import{r as e}from"./useRouter-BOAPZDg1.js";import{f as t}from"./index-BYWLTDn2.js";var n=e();function r(){return(0,n.jsx)(t,{to:`/login`,replace:!0})}export{r as component};
