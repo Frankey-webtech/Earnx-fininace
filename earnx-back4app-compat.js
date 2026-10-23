@@ -1,8 +1,8 @@
 (function () {
   'use strict';
   const defaults = {
-    applicationId: 'YOUR_BACK4APP_APPLICATION_ID',
-    javascriptKey: 'YOUR_BACK4APP_JAVASCRIPT_KEY',
+    applicationId: 'jDMwnR6TBWGx0JFGCVNQqZEw7sVTMM63W7Jtqdxl',
+    javascriptKey: '13cZvAcRwJYFGclHCF27rPbLYygkyEY2Szcw0CKk',
     serverURL: 'https://parseapi.back4app.com'
   };
   const cfg = Object.assign({}, defaults, window.EARNX_BACK4APP_CONFIG || {});
