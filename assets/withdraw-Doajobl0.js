@@ -1899,14 +1899,28 @@ function Do() {
       let [{ data: r }, { data: i }, { data: a }, { data: o }] = await Promise.all([h.from(`profiles`).select(`balance, pending_balance, bank_name, bank_account_number, bank_account_name, level, activation, first_name`).eq(`id`, t.user.id).maybeSingle(), h.from(`platform_settings`).select(`*`).maybeSingle(), h.from(`withdrawals`).select(`id, reference, amount, status, bank_name, created_at`).eq(`user_id`, t.user.id).order(`created_at`, { ascending: !1 }).limit(10), h.from(`levels`).select(`level, name, min_withdrawal, max_withdrawal`).order(`level`)]), s = r, l = o ?? [], u = s?.level ?? 0;
       D(l), k(u), j(s?.activation ?? `not_activated`), N(s?.first_name ?? ``), c(s?.balance ?? 0), f(s?.pending_balance ?? 0), ae(s?.bank_name ?? ``), se(s?.bank_account_number ?? ``), le(s?.bank_account_name ?? ``), g(i), b(a ?? []);
       
-      h.rpc("get_nigerian_banks", {}).then(({ data: result }) => {
-        if (result?.ok && Array.isArray(result.banks)) {
-          g({
-            ...i,
-            supported_banks: result.banks.map(bank => bank.name)
-          });
+      const fallbackBanks = [
+        "Access Bank", "Citibank Nigeria", "Ecobank Nigeria", "Fidelity Bank",
+        "First Bank of Nigeria", "First City Monument Bank", "Globus Bank",
+        "Guaranty Trust Bank", "Heritage Bank", "Jaiz Bank", "Keystone Bank",
+        "Kuda Bank", "Moniepoint Microfinance Bank", "Opay", "Palmpay",
+        "Polaris Bank", "Premium Trust Bank", "Providus Bank", "Stanbic IBTC Bank",
+        "Standard Chartered Bank", "Sterling Bank", "SunTrust Bank", "TAJBank",
+        "Titan Trust Bank", "Union Bank of Nigeria", "United Bank for Africa",
+        "Unity Bank", "Wema Bank", "Zenith Bank"
+      ];
+      h.rpc("get_nigerian_banks", {}).then(({ data: result, error }) => {
+        const bankNames = !error && result?.ok && Array.isArray(result.banks)
+          ? result.banks.map(bank => bank.name).filter(Boolean)
+          : fallbackBanks;
+        g({ ...i, supported_banks: bankNames });
+        if (error || !result?.ok) {
+          console.error("Using fallback Nigerian bank list", error || result?.message || result?.reason);
         }
-      }).catch(error => console.error("Could not load Nigerian banks", error));
+      }).catch(error => {
+        console.error("Could not load Nigerian banks; using fallback list", error);
+        g({ ...i, supported_banks: fallbackBanks });
+      });
       
       let d = l.find(e => e.level === u),
         p = Number(d?.min_withdrawal ?? 0),
